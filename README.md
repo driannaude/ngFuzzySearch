@@ -1,34 +1,55 @@
-# fuzzysearch
+# ngFuzzySearch
 
-> Tiny and blazing-fast fuzzy search in JavaScript
+Based on [fuzzysearch](https://github.com/bevacqua/fuzzysearch) by [@bevacqua](https://github.com/bevacqua), who did a fantastic job, btw!
+
+Tiny and blazing-fast fuzzy search in JavaScript, now with Angular 1.3.x support!
 
 Fuzzy searching allows for flexibly matching a string with partial input, useful for filtering data very quickly based on lightweight user input.
 
-# Demo
+## Demo
 
 To see `fuzzysearch` in action, head over to [bevacqua.github.io/horsey][3], which is a demo of an autocomplete component that uses `fuzzysearch` to filter out results based on user input.
 
-# Install
+## Installation
 
-From `npm`
+Using **Bower**:
 
 ```shell
-npm install --save fuzzysearch
+bower install --save-dev ngFuzzySearch
 ```
 
-# `fuzzysearch(needle, haystack)`
+## Usage
 
-Returns `true` if `needle` matches `haystack` using a fuzzy-searching algorithm. Note that this program doesn't implement _[levenshtein distance][2]_, but rather a simplified version where **there's no approximation**. The method will return `true` only if each character in the `needle` can be found in the `haystack` and occurs after the preceding matches.
+Include a script tag for ngFuzzySearch in your index.html file:
+
+```html
+<script type="text/javascript" src="bower_components/ngFuzzySearch/ngFuzzySearch.js"></script>
+```
+
+Include ngFuzzySearch as a dependency in your `app.js` file:
 
 ```js
-fuzzysearch('twl', 'cartwheel') // <- true
-fuzzysearch('cart', 'cartwheel') // <- true
-fuzzysearch('cw', 'cartwheel') // <- true
-fuzzysearch('ee', 'cartwheel') // <- true
-fuzzysearch('art', 'cartwheel') // <- true
-fuzzysearch('eeel', 'cartwheel') // <- false
-fuzzysearch('dog', 'cartwheel') // <- false
+angular.module('myApp', ['ngFuzzySearch']);
 ```
+
+Include the `fuzzySearch` Angular Service in your controller and use it!
+The service returns `true` if `needle` matches `haystack` using a fuzzy-searching algorithm. Note that this program doesn't implement _[levenshtein distance][2]_, but rather a simplified version where **there's no approximation**. The method will return `true` only if each character in the `needle` can be found in the `haystack` and occurs after the preceding matches.
+```js
+module.controller('myCtrl', function(fuzzySearch){
+	fuzzySearch.find('twl', 'cartwheel') // <- true
+	fuzzySearch.find('cart', 'cartwheel') // <- true
+	fuzzySearch.find('cw', 'cartwheel') // <- true
+	fuzzySearch.find('ee', 'cartwheel') // <- true
+	fuzzySearch.find('art', 'cartwheel') // <- true
+	fuzzySearch.find('eeel', 'cartwheel') // <- false
+	fuzzySearch.find('dog', 'cartwheel') // <- false
+})
+```
+
+`fuzzysearch(needle, haystack)`
+
+
+
 
 An exciting application for this kind of algorithm is to filter options from an autocomplete menu, check out [horsey][3] for an example on how that might look like.
 
