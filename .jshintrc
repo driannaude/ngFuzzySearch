@@ -17,5 +17,8 @@
   "latedef": "nofunc",
   "quotmark": "single",
   "indent": 2,
-  "node": true
+  "node": true,
+  "globals": {
+      "angular": true,
+  }
 }
