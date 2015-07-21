@@ -1,0 +1,28 @@
+{
+  "name": "ngFuzzySearch",
+  "main": "ngFuzzySearch.js",
+  "version": "1.0.2",
+  "homepage": "https://github.com/driannaude/ngFuzzySearch",
+  "authors": [
+    "Drian Naude <drian.naude@gmail.com>"
+  ],
+  "description": "FuzzySearch by @bevacqua wrapped in an angular service",
+  "keywords": [
+    "fuzzy",
+    "search",
+    "match",
+    "regex",
+    "fuzzysearch",
+    "angular",
+    "ng",
+    "ngfuzzysearch"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
