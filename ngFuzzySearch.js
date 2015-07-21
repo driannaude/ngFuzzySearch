@@ -5,7 +5,15 @@
 
   module.factory('fuzzySearch', function () {
 
-    function _fuzzySearch(needle, haystack) {
+    function _fuzzySearch(needle, haystack, caseSensitive) {
+      if(angular.isUndefined(needle) || angular.isUndefined(haystack)){
+        return false;
+      }
+      // check for case sensitive option
+      if(angular.isUndefined(caseSensitive) || caseSensitive === false) {
+        needle = needle.toLowerCase();
+        haystack = haystack.toLowerCase();
+      }
       var hlen = haystack.length;
       var nlen = needle.length;
       if (nlen > hlen) {
@@ -27,9 +35,32 @@
     }
 
     var self = {
-      find: _fuzzySearch
+      find: _fuzzySearch,
     };
     return self;
   });
+
+  module.filter('fuzzyFilter', function(fuzzySearch) {
+  return function(haystack, needle, key) {
+
+    return haystack.filter(function(element, index, array) {
+
+      if(angular.isUndefined(needle) || needle === ''){
+        return true;
+      } else {
+        var match;
+        if(angular.isDefined(key) && key !== ''){
+            match = fuzzySearch.find(needle, element[key]);
+        } else {
+          match = fuzzySearch.find(needle, element);
+        }
+
+
+        return match;
+      }
+
+    });
+  };
+});
 
 }());
