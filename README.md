@@ -49,6 +49,34 @@ module.controller('myCtrl', function(fuzzySearch){
 `fuzzysearch(needle, haystack)`
 
 
+### Filtering ng-repeat
+
+ngFuzzySearch also comes equipped with a filter, which you can use to filter `ng-repeat` blocks with a scope variable.
+The filter syntax goes as follows: 
+
+```html
+<div class="col-xs-12" ng-repeat="thing in model.things | fuzzyFilter:[needle]:[keyString]">
+```
+
+Where `keyString` is the **key** of the iterator object you would like to filter against, i.e. if your object is:
+
+```javascript
+var model = {};
+model.things = [{
+  _id: 1,
+  name: 'Iterator One'
+},{
+  _id: 2,
+  name: 'Iterator Two'
+}];
+...
+```
+If you want to search the `name` field, in the `model.things` object, using an input on the same page, you can do the following:
+```html
+<input type="text" ng-model="model.fuzzySearchValue" />
+...
+<div class="col-xs-12" ng-repeat="thing in model.things | fuzzyFilter:model.fuzzySearchValue:'name'">
+```
 
 
 An exciting application for this kind of algorithm is to filter options from an autocomplete menu, check out [horsey][3] for an example on how that might look like.
