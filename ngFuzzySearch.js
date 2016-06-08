@@ -42,8 +42,11 @@
 
   module.filter('fuzzyFilter', function(fuzzySearch) {
   return function(haystack, needle, key) {
-
-    return haystack.filter(function(element, index, array) {
+    if(!haystack){
+      console.warn('[WARNING]: Haystack is undefined or falsy. Please ensure you are passing it an array');
+    }
+    haystack = haystack || [];
+    return haystack.filter(function(element) {
 
       if(angular.isUndefined(needle) || needle === ''){
         return true;

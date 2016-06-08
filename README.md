@@ -15,7 +15,7 @@ To see `fuzzysearch` in action, head over to [bevacqua.github.io/horsey][3], whi
 Using **Bower**:
 
 ```shell
-bower install --save-dev ngFuzzySearch
+bower install --save ngFuzzySearch
 ```
 
 ## Usage
@@ -52,7 +52,7 @@ module.controller('myCtrl', function(fuzzySearch){
 ### Filtering ng-repeat
 
 ngFuzzySearch also comes equipped with a filter, which you can use to filter `ng-repeat` blocks with a scope variable.
-The filter syntax goes as follows: 
+The filter syntax goes as follows:
 
 ```html
 <div class="col-xs-12" ng-repeat="thing in model.things | fuzzyFilter:[needle]:[keyString]">
