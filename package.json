@@ -1,23 +1,21 @@
 {
-  "name": "fuzzysearch",
+  "name": "ng-fuzzysearch",
   "description": "Tiny and blazing-fast fuzzy search in JavaScript",
-  "version": "1.0.3",
-  "homepage": "https://github.com/bevacqua/fuzzysearch",
+  "version": "1.1.0",
+  "main": "src/ngFuzzySearch.js",
+  "homepage": "https://github.com/driannaude/ngFuzzySearch",
   "author": {
-    "name": "Nicolas Bevacqua",
-    "email": "ng@bevacqua.io",
-    "url": "http://bevacqua.io"
+    "name": "Drian Naude",
+    "email": "drian.naude@gmail.com",
+    "url": "https://naude.io"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bevacqua/fuzzysearch.git"
+    "url": "git@github.com:driannaude/ngFuzzySearch.git"
   },
   "scripts": {
     "test": "jshint . && tape test/*.js"
   },
-  "devDependencies": {
-    "jshint": "^2.6.0",
-    "tape": "^3.5.0"
-  }
+  "devDependencies": {}
 }

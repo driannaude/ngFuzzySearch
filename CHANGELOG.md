@@ -1,3 +1,7 @@
+# v1.1.0 Multi Pass
+ - Added `filterMultiple` filter option to allow for filtering by multiple object keys
+ - Alphabetized search result ordering, order preserved until filter string length > 0
+
 # v1.0.3 Short Fuse
 
 - Improved circuit-breaker when `needle` and `haystack` length are equal

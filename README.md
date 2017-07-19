@@ -2,7 +2,7 @@
 
 Based on [fuzzysearch](https://github.com/bevacqua/fuzzysearch) by [@bevacqua](https://github.com/bevacqua), who did a fantastic job, btw!
 
-Tiny and blazing-fast fuzzy search in JavaScript, now with Angular 1.3.x support!
+Tiny and blazing-fast fuzzy search in JavaScript, now with Angular 1.6.x support!
 
 Fuzzy searching allows for flexibly matching a string with partial input, useful for filtering data very quickly based on lightweight user input.
 
@@ -78,14 +78,20 @@ If you want to search the `name` field, in the `model.things` object, using an i
 <div class="col-xs-12" ng-repeat="thing in model.things | fuzzyFilter:model.fuzzySearchValue:'name'">
 ```
 
+### Filtering using multiple fields
+If you want to search the `name` field **AND** the description field, in the `model.things` object, using an input on the same page, you can do the following:
+```html
+<input type="text" ng-model="model.fuzzySearchValue" />
+...
+<div class="col-xs-12" ng-repeat="thing in model.things | filterMultiple:{name:model.fuzzySearchValue, desc:model.fuzzySearchValue}:'fuzzyFilter'">
+```
+**NOTE:** You can also use `filterMultiple` to filter through most string-based filters. 
 
-An exciting application for this kind of algorithm is to filter options from an autocomplete menu, check out [horsey][3] for an example on how that might look like.
+### Changelog
 
-# But! _`RegExp`s...!_
-
-[![chart showing abysmal performance for regexp-based implementation][1]][4]
-
-<sub>The current implementation uses the algorithm suggested by Mr. Aleph, a crazy russian compiler engineer working at V8.</sub>
+| Date | Notes |
+|------|:------|
+| Jul '17 | Added `filterMultiple` and alphabetized filtering. Ng-repeat order will be preserved until input starts 
 
 # License
 
