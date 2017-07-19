@@ -89,9 +89,10 @@ If you want to search the `name` field **AND** the description field, in the `mo
 
 ### Changelog
 
-| Date | Notes |
-|------|:------|
-| Jul '17 | Added `filterMultiple` and alphabetized filtering. Ng-repeat order will be preserved until input starts 
+| Version | Date | Notes |
+|:-------:|:-----|:------|
+| **v1.1.2** | 07/17 | Added `filterMultiple` and alphabetized filtering. Ng-repeat order will be preserved until input starts |
+| **v1.1.0** | 07/17 | Added module export as `ngFuzzySearch` to better support webpack |
 
 # License
 

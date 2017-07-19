@@ -1,3 +1,6 @@
+# v1.1.2 Webpack Support
+ - Added module export as `ngFuzzySearch` to better support webpack
+
 # v1.1.0 Multi Pass
  - Added `filterMultiple` filter option to allow for filtering by multiple object keys
  - Alphabetized search result ordering, order preserved until filter string length > 0
