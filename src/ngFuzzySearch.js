@@ -71,20 +71,36 @@
 
   module.factory('fuzzySearch', function () {
 
-    function _fuzzySearch(needle, haystack, caseSensitive) {
+    // Returns object value at dot notated reference
+    function getObjectReference(obj, str) {
+      str = str.split(".");
+      for (var i = 0; i < str.length; i++)
+          obj = obj[str[i]];
+      return obj;
+    }
+
+
+    function _fuzzySearch(needle, haystack, key, caseSensitive) {
       if (angular.isUndefined(needle) || angular.isUndefined(haystack)) {
         return false;
+      }
+      if(key) {
+        haystack = getObjectReference(haystack, key);
       }
       // check for case sensitive option
       if (angular.isUndefined(caseSensitive) || caseSensitive === false) {
         needle = needle.toLowerCase();
         haystack = haystack.toLowerCase();
       }
+
+
       var hlen = haystack.length;
       var nlen = needle.length;
       if (nlen > hlen) {
         return false;
       }
+
+
       if (nlen === hlen) {
         return needle === haystack;
       }
@@ -124,12 +140,10 @@
         } else {
           var match;
           if (angular.isDefined(key) && key !== '') {
-            match = fuzzySearch.find(needle, element[key]);
+            match = fuzzySearch.find(needle, element, key);
           } else {
             match = fuzzySearch.find(needle, element);
           }
-
-
           return match;
         }
 

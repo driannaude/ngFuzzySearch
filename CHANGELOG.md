@@ -1,5 +1,8 @@
+# v1.2.0 Nested Object Support
+ - Added support for using dot notation strings to reference nested objects (see README.md)
+
 # v1.1.2 Webpack Support
- - Added module export as `ngFuzzySearch` to better support webpack
+ - Added module export as `ngFuzzySearch` to better support webpack.
 
 # v1.1.0 Multi Pass
  - Added `filterMultiple` filter option to allow for filtering by multiple object keys

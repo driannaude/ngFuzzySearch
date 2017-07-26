@@ -1,6 +1,6 @@
 # ngFuzzySearch
 
-Based on [fuzzysearch](https://github.com/bevacqua/fuzzysearch) by [@bevacqua](https://github.com/bevacqua), who did a fantastic job, btw!
+Based on [fuzzysearch](https://github.com/bevacqua/fuzzysearch) by [Nicolás Bevacqua](https://github.com/bevacqua), who did a fantastic job, btw!
 
 Tiny and blazing-fast fuzzy search in JavaScript, now with Angular 1.6.x support!
 
@@ -8,7 +8,7 @@ Fuzzy searching allows for flexibly matching a string with partial input, useful
 
 ## Demo
 
-To see `fuzzysearch` in action, head over to [bevacqua.github.io/horsey][3], which is a demo of an autocomplete component that uses `fuzzysearch` to filter out results based on user input.
+A fully functional demo is included in the `example/` directory.
 
 ## Installation
 
@@ -87,16 +87,38 @@ If you want to search the `name` field **AND** the description field, in the `mo
 ```
 **NOTE:** You can also use `filterMultiple` to filter through most string-based filters. 
 
+### Nested Object References
+If you want to search using a nested value like `person.name`, you can do so by passing a dot-notation string to the filter like this:
+```html
+<input type="text" ng-model="model.fuzzySearchValue" />
+...
+<div class="col-xs-12" ng-repeat="thing in model.things | fuzzyFilter:model.fuzzySearchValue:'person.name'">
+```
+
+You can also use this in conjunction with `filterMulitple` and even mix and match like below:
+
+```html
+<input type="text" ng-model="model.fuzzySearchValue">
+...
+<div class="col-xs-12" ng-repeat="thing in model.things | filterMultiple:{'person.name':model.fuzzySearchValue, desc:model.fuzzySearchValue}:'fuzzyFilter'">
+```
+
 ### Changelog
 
 | Version | Date | Notes |
 |:-------:|:-----|:------|
+| **v1.2.0** | 07/17 | Added nested object filtering via dot notation keys |
 | **v1.1.2** | 07/17 | Added `filterMultiple` and alphabetized filtering. Ng-repeat order will be preserved until input starts |
 | **v1.1.0** | 07/17 | Added module export as `ngFuzzySearch` to better support webpack |
 
-# License
+# License - **MIT**
 
-MIT
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [1]: https://cloud.githubusercontent.com/assets/934293/6550014/d3a86174-c5fc-11e4-8334-b2e2b0d38fad.png
 [2]: http://en.wikipedia.org/wiki/Levenshtein_distance

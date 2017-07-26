@@ -29,9 +29,9 @@
           <h1>Try searching:</h1>
           <input class="form-control" ng-model="fuzzySearchValue" />
           <ul>
-            <li ng-repeat="person in people | filterMultiple:{name:fuzzySearchValue, desc:fuzzySearchValue}:'fuzzyFilter'">
-              <h3>{{ person.name }}</h3>
-              <p>Age: {{ person.age }} | Category: {{ person.category }}</p>
+            <li ng-repeat="person in people | filterMultiple:{'person.name':fuzzySearchValue, desc:fuzzySearchValue}:'fuzzyFilter'">
+              <h3>{{ person.person.name }}</h3>
+              <p>Age: {{ person.person.age }} | Category: {{ person.category }}</p>
               <p>{{person.desc}}</p>
             </li>
           </ul>
