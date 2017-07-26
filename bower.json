@@ -1,7 +1,7 @@
 {
   "name": "ngFuzzySearch",
-  "main": "ngFuzzySearch.js",
-  "version": "1.2.0",
+  "main": "src/ngFuzzySearch.js",
+  "version": "1.2.1",
   "homepage": "https://github.com/driannaude/ngFuzzySearch",
   "authors": [
     "Drian Naude <drian.naude@gmail.com>"
